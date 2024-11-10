@@ -47,7 +47,7 @@ app.use(
 
 //ruta de prueba de funcionamiento en vercel
 app.get('/', (req,res)=>{
-  res.json({mensaje: 'Funcionando backend de EPIcalls'})
+  res.json({mensaje: 'Funcionando backend de epi-r2-backend'})
 })
 
 //rutas

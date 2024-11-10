@@ -66,8 +66,12 @@ export default class UsersManager {
         logger.error("Loggin error. Mail not found in database");
       }
 
+      console.log('pass', password, usuario.password)
+
       if (usuario) {
-        const isPassword = comparePasswords(password, usuario.password);
+        const isPassword = await comparePasswords(password, usuario.password);
+
+        console.log('rta',isPassword)
         if (isPassword) {
           logger.info("Login successfully");
           return usuario;
