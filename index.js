@@ -7,6 +7,7 @@ import cors from 'cors'
 import { PORT } from './src/utils.js'
 
 import usersRouter from './src/routes/users.router.js'
+import dataRouter from './src/routes/data.router.js'
 
 const app = express()
 app.use(cors())
@@ -52,6 +53,7 @@ app.get('/', (req,res)=>{
 
 //rutas
 app.use('/api/users', usersRouter)
+app.use('/api/data', dataRouter)
 
 
 
