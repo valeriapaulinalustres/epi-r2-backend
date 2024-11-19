@@ -11,3 +11,12 @@ export const saveDataController = async (req, res) => {
       res.json({ message: "Error al guardar los datos" });
     }
   };
+
+  export const getDataController = async (req, res) => {
+    const data = await dataManager.getData();
+    if (data) {
+      res.json(data);
+    } else {
+      res.json({ error: "No hay información disponible" });
+    }
+  };

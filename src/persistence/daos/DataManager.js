@@ -22,4 +22,21 @@ export default class DataManager {
           throw new Error(error);
         }
       }
+
+      async getData() {
+        try {
+          const data = await dataModel.find();
+          if (data) {
+            logger.info("Data obtained successfully");
+            return data;
+          } else {
+            logger.error("Data not found in database");
+            return null;
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      }
+
+
 }
