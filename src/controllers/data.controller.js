@@ -20,3 +20,16 @@ export const saveDataController = async (req, res) => {
       res.json({ error: "No hay información disponible" });
     }
   };
+
+  export const getDataFilteredByYearMonthHealthcenterController = async (req, res) => {
+    const data = await dataManager.getDataFilteredByYearMonthHealthcenter(req.body);
+    if (data) {
+      res.json(data);
+    } else {
+      res.json({ error: "No hay información disponible" });
+    }
+  };
+
+  
+
+  

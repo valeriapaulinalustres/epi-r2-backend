@@ -38,5 +38,36 @@ export default class DataManager {
         }
       }
 
+      
+      async  getDataFilteredByYearMonthHealthcenter(body) {
+        try {
+          const { year, healthCenterId, months } = body;
+      
+          if (!year || !healthCenterId || !Array.isArray(months) || months.length === 0) {
+            return res.status(400).json({ error: "Parámetros faltantes o inválidos" });
+          }
+      
+          const query = {
+            year: year,
+            healthCenterId: healthCenterId,
+            month: { $in: months }, 
+          };
+      
+          const data = await dataModel.find(query);
+      
+          if (data && data.length > 0) {
+            logger.info("Data obtained successfully");
+            return data
+          } else {
+            logger.error("Data not found in database");
+            return null
+          }
+        } catch (error) {
+          console.error(error);
+          return error
+        }
+      }
+      
+
 
 }
