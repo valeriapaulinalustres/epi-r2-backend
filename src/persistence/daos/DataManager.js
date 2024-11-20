@@ -44,7 +44,8 @@ export default class DataManager {
           const { year, healthCenterId, months } = body;
       
           if (!year || !healthCenterId || !Array.isArray(months) || months.length === 0) {
-            return res.status(400).json({ error: "Parámetros faltantes o inválidos" });
+            logger.info("Missing or incorrect params");
+            return null
           }
       
           const query = {

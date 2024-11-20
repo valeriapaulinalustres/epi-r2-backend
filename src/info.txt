@@ -1,0 +1,11 @@
+Routes
+
+/data
+
+GET /get-data *** Trae toda la data disponible ***
+POST /get-data-filtered-year-month-healthcenter *** Trae info filtrada por año, mes y centro de salud ***
+    Ej. body = {
+    "months": ["Agosto", "Noviembre"],
+    "healthCenterId": 3,
+    "year": 2024
+}
