@@ -16,7 +16,7 @@ export const getUsersController = async (req, res) => {
         email: users[i].email,
         profession: users[i].profession,
         job: users[i].job,
-        isAdmin: users[i].isAdmin,
+        permission: users[i].permission,
       };
       newUsers.push(user);
     }
@@ -49,13 +49,13 @@ export const loginUserController = async (req, res) => {
 
     const user = await usersManager.loginUser(req.body);
     if (user) {
-      const { first_name, last_name, profession, job, email, isAdmin } = user;
+      const { first_name, last_name, profession, job, email, permission } = user;
       //  res.set('Access-Control-Allow-Origin', '*')
       //    req.session.name = first_name
       req.session.email = email;
       req.session.password = password;
       res.json({
-        user: { first_name, last_name, profession, job, email, isAdmin },
+        user: { first_name, last_name, profession, job, email, permission },
       });
     } else {
       return res

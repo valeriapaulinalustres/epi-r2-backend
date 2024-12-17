@@ -9,3 +9,20 @@ POST /get-data-filtered-year-month-healthcenter *** Trae info filtrada por año,
     "healthCenterId": 3,
     "year": 2024
 }
+
+/users
+
+GET /users *** Trae todos los usuarios ***
+POST /register *** Crea un nuevo usuario ***
+    Ej. body = {
+        "first_name": "Valeria",
+        "last_name": "Lustres",
+        "email": "va@gmail.com",
+        "profession": "Médica",
+        "job": "Epidemiología",
+        "permission": "superAdmin", (superAdmin, admin, client)
+        "password": 1234
+    }
+POST /edit-user/:id *** Edita un usuario ***
+DELETE /delete-user/:id ***Elimina un usuario ***
+POST /change-password *** Edita una contraseña ***

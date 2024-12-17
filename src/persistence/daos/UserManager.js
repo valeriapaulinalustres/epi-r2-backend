@@ -103,7 +103,7 @@ export default class UsersManager {
   }
 
   async editUser(editedUser, id) {
-    const { first_name, last_name, email, profession, job, isAdmin } =
+    const { first_name, last_name, email, profession, job, permission } =
       editedUser;
     try {
       const editedUser = await userModel.findByIdAndUpdate(
@@ -114,7 +114,7 @@ export default class UsersManager {
           email,
           profession,
           job,
-          isAdmin,
+          permission,
         },
         { new: true }
       );
